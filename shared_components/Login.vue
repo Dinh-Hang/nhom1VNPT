@@ -98,7 +98,7 @@ export default {
           alert(message);
         }
       } catch (error) {
-        alert("Đăng nhập thất bại. Vui lòng thử lại!");
+        alert("Đăng nhập thất bại. Vui lòng thử lại!!");
         console.error(error);
       }
     }
