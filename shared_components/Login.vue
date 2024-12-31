@@ -90,9 +90,9 @@ export default {
 
           // Chuyển hướng dựa trên vai trò
           if (role === "admin") {
-            window.location.href = "http://localhost:8086";
+            window.location.href = "http://localhost:8088";
           } else if (role === "user") {
-            window.location.href = "http://localhost:8085";
+            window.location.href = "http://localhost:8087";
           }
         } else {
           alert(message);
