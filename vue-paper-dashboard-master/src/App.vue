@@ -1,16 +1,13 @@
 <template>
   <div :class="{ 'nav-open': $sidebar.showSidebar }">
     <notifications></notifications>
-    <LoginComponent role="admin" />
     <router-view></router-view>
   </div>
 </template>
 <script>
-import LoginComponent from '../../shared_components/Login.vue';
 
 export default {
   components: {
-    LoginComponent
   }
 };
 </script>

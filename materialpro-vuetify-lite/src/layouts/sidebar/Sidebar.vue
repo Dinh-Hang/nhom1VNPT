@@ -19,8 +19,8 @@
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>Dohn Deo</v-list-item-title>
-          <v-list-item-subtitle class="caption">Webdesigner</v-list-item-subtitle>
+          <v-list-item-title>Tên sinh viên</v-list-item-title>
+          <v-list-item-subtitle class="caption">Má sinh viên</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <!---USer Area -->
@@ -59,31 +59,32 @@ export default {
   data: () => ({
     items: [
       {
-        title: "Dashboard",
+        title: "Trang chủ",
         icon: "mdi-view-dashboard",
-        to: "/dashboard/basic-dashboard"
+        // to: "/dashboard/basic-dashboard"
+        to: "/projects"
       },
 
       {
-        title: "Profile",
+        title: "Thông tin chung",
         icon: "mdi-account-circle",
         to: "/pages/profile"
       },
 
       {
-        title: "Alerts",
+        title: "Học tập",
         icon: "mdi-alert",
         to: "/pages/alerts"
       },
 
       {
-        title: "Icons",
+        title: "Đăng ký học phần",
         icon: "mdi-emoticon",
         to: "/pages/icons"
       },
 
       {
-        title: "Basic Table",
+        title: "Khác",
         icon: "mdi-table-column-width",
         to: "/pages/tables-simple"
       }
@@ -125,9 +126,9 @@ export default {
         justify-content: center;
         text-align: center;
         width: 20px;
-        
+
       }
-      
-  }    
+
+  }
 }
 </style>

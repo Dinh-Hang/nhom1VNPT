@@ -10,7 +10,8 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            redirect: 'dashboard/basic-dashboard',
+            // redirect: 'dashboard/basic-dashboard',
+            redirect: 'projects',
             component: () => import('@/layouts/Layout'),
             meta: {requiresUser: true, requiresAuth: true }, // Đánh dấu yêu cầu đăng nhập
             children: [
@@ -40,7 +41,8 @@ const router = new Router({
                 },
                 {
                     name: 'Dashboard',
-                    path: 'dashboard/basic-dashboard',
+                    // path: 'dashboard/basic-dashboard',
+                    path: 'projects',
                     component: () => import('@/views/dashboard/BasicDashboard'),
                     meta: {requiresUser: true, requiresAuth: true },
                 },

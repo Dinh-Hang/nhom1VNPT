@@ -1,17 +1,36 @@
+<!--<template>-->
+<!--  <LoginLayout>-->
+<!--    <div class="row">-->
+
+<!--      <form @submit.prevent="LoginData">-->
+<!--        <div class="form-control">-->
+<!--          <label>MÃ SV</label>-->
+<!--          <input type="text" v-model="employee.masv" class="form-control" required>-->
+<!--        </div>-->
+<!--        <div class="form-control">-->
+<!--          <label>Password</label>-->
+<!--          <input type="password" v-model="employee.password" class="form-control" required>-->
+<!--        </div>-->
+<!--        <button type="submit" class="btn"> ĐĂNG NHẬP </button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </LoginLayout>-->
+<!--</template>-->
+
+
 <template>
   <LoginLayout>
     <div class="row">
-
-      <form @submit.prevent="LoginData">
-        <div class="form-control">
-          <label>MÃ SV</label>
-          <input type="text" v-model="employee.masv" class="form-control" required>
+      <form @submit.prevent="LoginData" >
+        <div class="form-group">
+          <label for="masv">MÃ SV</label>
+          <input type="text" v-model="employee.masv" class="form-control" id="masv" required>
         </div>
-        <div class="form-control">
-          <label>Password</label>
-          <input type="password" v-model="employee.password" class="form-control" required>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" v-model="employee.password" class="form-control" id="password" required>
         </div>
-        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn btn-primary btn-block"> ĐĂNG NHẬP </button>
       </form>
     </div>
   </LoginLayout>
@@ -37,6 +56,8 @@ export default {
   mounted() {
     console.log("mounted() called.........");
   },
+
+
 
 //   methods: {
 //
@@ -90,9 +111,9 @@ export default {
 
           // Chuyển hướng dựa trên vai trò
           if (role === "admin") {
-            window.location.href = "http://localhost:8088";
+            window.location.href = "http://localhost:8081";
           } else if (role === "user") {
-            window.location.href = "http://localhost:8087";
+            window.location.href = "http://localhost:8080";
           }
         } else {
           alert(message);
@@ -107,70 +128,23 @@ export default {
 
 </script>
 <style scoped>
-.login-layout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Chiều cao đầy đủ của viewport */
-  background-color: #f7f7f7; /* Màu nền */
-}
-
 .row {
   width: 100%; /* Chiều rộng đầy đủ */
-  max-width: 400px; /* Độ rộng tối đa */
+  max-width: 500px; /* Độ rộng tối đa */
   margin: auto; /* Canh giữa */
-  padding: 20px; /* Khoảng cách trong */
-  border-radius: 8px; /* Bo góc */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Đổ bóng */
-  background-color: white; /* Màu nền trắng cho form */
 }
-
-h2 {
-  text-align: center; /* Căn giữa tiêu đề */
-  margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
-  color: #333; /* Màu chữ tối */
-}
-
-.form-control {
+.form-group {
+  display: flex; /* Sử dụng flex để căn giữa */
+  flex-direction: column; /* Sắp xếp theo chiều dọc */
   margin-bottom: 15px; /* Khoảng cách giữa các trường */
 }
 
-label {
-  font-weight: bold; /* Chữ in đậm cho label */
-  display: block; /* Hiển thị label dưới dạng khối */
-  margin-bottom: 5px; /* Khoảng cách dưới label */
-  color: #555; /* Màu chữ cho label */
+.form-control {
+  width: 100%; /* Đảm bảo ô input có chiều rộng 100% */
+  padding: 10px; /* Khoảng cách bên trong cho ô input */
+  border: 1px solid #ccc; /* Đường viền cho ô input */
+  border-radius: 4px; /* Bo tròn góc cho ô input */
+  box-shadow: none; /* Xóa đổ bóng mặc định */
 }
 
-input[type="text"],
-input[type="password"] {
-  width: 100%; /* Nút full width */
-  padding: 10px; /* Khoảng cách trong */
-  border: 1px solid #ccc; /* Đường viền nhẹ */
-  border-radius: 4px; /* Bo góc */
-  transition: border-color 0.3s; /* Hiệu ứng chuyển màu viền */
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border-color: #007bff; /* Màu viền khi focus */
-  outline: none; /* Xóa viền ngoài khi focus */
-}
-
-.btn {
-  width: 100%; /* Nút full width */
-  padding: 10px; /* Khoảng cách trong */
-  border: none; /* Không có đường viền */
-  border-radius: 4px; /* Bo góc */
-  background-color: #007bff; /* Màu nền nút */
-  color: white; /* Màu chữ nút */
-  font-weight: bold; /* Chữ in đậm cho nút */
-  cursor: pointer; /* Con trỏ chuột khi hover */
-  transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
-}
-
-.btn:hover {
-  background-color: #0056b3; /* Màu nền khi hover */
-}
 </style>
-

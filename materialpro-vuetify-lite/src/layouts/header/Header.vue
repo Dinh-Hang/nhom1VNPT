@@ -5,7 +5,8 @@
         <img src="../../assets/logo-light-icon.png" />
       </span>
       <span class="logo-text ml-2">
-        <img src="../../assets/logo-light-text.png" class="mt-2" />
+        Tên SINH VIÊN
+<!--        <img src="../../assets/logo-light-text.png" class="mt-2" />-->
       </span>
     </v-toolbar-title>
     <v-app-bar-nav-icon
@@ -14,7 +15,7 @@
     />
     <v-spacer />
     <!---right part -->
-    <v-btn dark color="success" href="https://www.wrappixel.com/templates/materialpro-vuetify-admin/">Upgrade to Pro</v-btn>
+<!--    <v-btn dark color="success" href="https://www.wrappixel.com/templates/materialpro-vuetify-admin/">Upgrade to Pro</v-btn>-->
     <v-menu bottom left transition="scale-transition">
       <template v-slot:activator="{ on }">
         <v-btn dark icon v-on="on">
@@ -23,7 +24,7 @@
       </template>
 
       <v-list>
-        <v-list-item v-for="(item, i) in userprofile" :key="i" @click="href">
+        <v-list-item v-for="(item, i) in userprofile" :key="i" @click="href(item.title)">
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -52,9 +53,9 @@ export default {
       { title: "Account Setting" },
       { title: "Logout" }
     ],
-    href() {
-      return undefined;
-    }
+    // href() {
+    //   return undefined;
+    // }
   }),
 
   computed: {
@@ -64,7 +65,31 @@ export default {
   methods: {
     ...mapMutations({
       setSidebarDrawer: "SET_SIDEBAR_DRAWER"
-    })
+    }),
+    async handleLogout() {
+      const confirmLogout = window.confirm("Bạn có chắc chắn muốn đăng xuất không?");
+      if (confirmLogout) {
+        try {
+          // Xóa cookie
+          document.cookie = "token=; path=/; domain=localhost; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+          document.cookie = "role=; path=/; domain=localhost; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+
+          console.log("Đã logout, cookie đã bị xóa!");
+
+          // Điều hướng về trang login
+          window.location.href = "http://localhost:8080/login";
+        } catch (error) {
+          console.error("Lỗi khi logout:", error);
+        }
+      }
+    },
+    href(itemTitle) {
+      if (itemTitle === "Logout") {
+        this.handleLogout();
+      } else {
+        alert(`Đã chọn: ${itemTitle}`);
+      }
+    }
   }
 };
 </script>

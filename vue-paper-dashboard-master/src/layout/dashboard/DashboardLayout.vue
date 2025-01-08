@@ -2,8 +2,8 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links">
-        <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel" />
-        <sidebar-link to="/stats" name="User Profile" icon="ti-user" />
+        <sidebar-link to="/dashboard" name="Trang Chủ" icon="ti-panel" />
+        <sidebar-link to="/stats" name="Tài Khoản" icon="ti-user" />
         <sidebar-link
           to="/table-list"
           name="Table List"

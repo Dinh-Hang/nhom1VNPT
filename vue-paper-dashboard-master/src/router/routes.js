@@ -20,13 +20,13 @@ const routes = [
     children: [
       {
         path: "dashboard",
-        name: "dashboard",
+        name: "trang chủ",
         component: Dashboard,
         meta: {requiresAdmin: true, requiresAuth: true },
       },
       {
         path: "stats",
-        name: "stats",
+        name: "tài khoản",
         component: UserProfile,
         meta: {requiresAdmin: true, requiresAuth: true },
       },

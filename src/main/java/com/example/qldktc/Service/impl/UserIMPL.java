@@ -49,7 +49,11 @@ public class UserIMPL implements UserService {
         if (sinhVien != null) {
             String password = loginDTO.getPassword();
             String encodedPassword = sinhVien.getPassword();
-            Boolean isPwdRight = passwordEncoder.matches(password, encodedPassword);
+//            Boolean isPwdRight = passwordEncoder.matches(password, encodedPassword);
+            Boolean isPwdRight  = false;
+            if(password.equalsIgnoreCase(encodedPassword)){
+              isPwdRight = true;
+            };
             if (isPwdRight) {
                 String token = jwtUtil.generateToken(sinhVien.getMasv(), sinhVien.getRole().getRole());
                 return new LoginResponse("Login Success", true, token, sinhVien.getRole().getRole());

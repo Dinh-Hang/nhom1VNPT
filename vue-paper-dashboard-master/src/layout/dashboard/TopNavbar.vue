@@ -23,7 +23,7 @@
           </li>
           <drop-down
             class="nav-item"
-            title="5 Notifications"
+            title="Thông báo"
             title-classes="nav-link"
             icon="ti-bell"
           >
@@ -34,9 +34,9 @@
             <a class="dropdown-item" href="#">Another notification</a>
           </drop-down>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link" @click.prevent="logout">
               <i class="ti-settings"></i>
-              <p>Settings</p>
+              <p>Đăng xuất</p>
             </a>
           </li>
         </ul>
@@ -73,6 +73,23 @@ export default {
     hideSidebar() {
       this.$sidebar.displaySidebar(false);
     },
+    logout() {
+      const confirmLogout = window.confirm("Bạn có chắc chắn muốn đăng xuất không?");
+      if (confirmLogout) {
+        try {
+          // Xóa cookie
+          document.cookie = "token=; path=/; domain=localhost; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+          document.cookie = "role=; path=/; domain=localhost; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+
+          console.log("Đã logout, cookie đã bị xóa!");
+
+          // Điều hướng về trang login
+          this.$router.push({name: "login"}); // Nếu bạn sử dụng Vue Router
+        } catch (error) {
+          console.error("Lỗi khi logout:", error);
+        }
+      }
+    }
   },
 };
 </script>
